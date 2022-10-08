@@ -23,6 +23,7 @@ const replySchema = new Schema(
     toJSON: {
       getters: true,
     },
+    id: false,
   }
 );
 
@@ -50,7 +51,8 @@ const CommentSchema = new Schema(
   }
 );
 
-CommentSchema.virtual('replyCount').get(function() {
+//these are basically helpers you can include in the models file... very handy.
+CommentSchema.virtual("replyCount").get(function () {
   return this.replies.length;
 });
 
